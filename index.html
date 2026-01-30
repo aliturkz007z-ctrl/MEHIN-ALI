@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PARIYA❤️</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+
+body {
+	transition: background 0.5s, color 0.5s;
+}
+
+body.dark-mode {
+	background: #111 !important;
+	color: #eee !important;
+}
+
+#controls {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 999;
+}
+
+#controls button {
+	margin: 5px;
+	padding: 8px 14px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+#toggleTheme {
+	background: #333;
+	color: #fff;
+}
+
+#playMusic {
+	background: #ff4d6d;
+	color: #fff;
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<!-- دکمه‌ها -->
+<div id="controls">
+	<button id="toggleTheme">🌓 حالت شب/روز</button>
+	<button id="playMusic">🎶 پخش/توقف آهنگ</button>
+</div>
+
+<!-- آهنگ -->
+<audio id="mySong" src="song.mp3"></audio>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">* 🌷 نامه ای  برای پریا </span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			😌💖  پریا کیوتِ خطرناک از اون دخترايی که<br />
+			...هم شیطونه، هم دل‌بَر…<br />
+			😍✨ یه لبخندِ کوچولو ازت<br />
+			...کافیه آدم قیدِ کل دنیا رو بزنه<br />
+			😏🔥 اون نگاهِ بازیگوشِت<br />
+			...بدجوری آدمو درگیر می‌کنه<br />
+			💫 نه زیادی مظلوم، نه معمولی<br />
+			...دقیقاً همونی که دل می‌خواد<br />
+			💘 خلاصش اینه<br />
+			...تو خیلی خاصی… و خاص بودنت بدجوری جذابه<br />
+			<br />
+			<br />
+			<span id="heartspan">
+			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					🌹 Tanışma Tarihi
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					Deli kızım.💋<br/>
+					<div class="signature">1404/11/1 PARIYA*ALI</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+
+// تنظیم تاریخ برای Saturday ساعت 15:00
+var together = new Date();
+together.setFullYear(2025, 12, 20); // 6 December 2025 = Saturday
+together.setHours(1);             // ساعت 15:00 (3 بعد از ظهر)
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+
+// 🎶 پخش/توقف آهنگ
+document.getElementById("playMusic").addEventListener("click", function(){
+	let song = document.getElementById("mySong");
+	if(song.paused){
+		song.play();
+	} else {
+		song.pause();
+	}
+});
+
+// 🌓 تغییر حالت شب/روز
+document.getElementById("toggleTheme").addEventListener("click", function(){
+	document.body.classList.toggle("dark-mode");
+});
+</script>
+
+</body>
+</html>
